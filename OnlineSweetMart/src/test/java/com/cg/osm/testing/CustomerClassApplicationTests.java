@@ -1,4 +1,4 @@
-package com.cg.osm;
+package com.cg.osm.testing;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

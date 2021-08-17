@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,7 +25,7 @@ public class Cart {
 	private double total;
 	@Column(name = "sweetitemcount")
 	private int sweetItemCount;
-	@OneToOne(targetEntity = SweetItem.class, cascade = CascadeType.ALL)
+	@ManyToOne(targetEntity = SweetItem.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "sweetitemid")
 	private SweetItem sweetItems;
 

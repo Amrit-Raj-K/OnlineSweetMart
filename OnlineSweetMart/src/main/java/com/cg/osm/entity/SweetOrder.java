@@ -43,6 +43,12 @@ public class SweetOrder {
 		super();
 	}
 
+	public SweetOrder(int i, LocalDate date) {
+		// TODO Auto-generated constructor stub
+		this.sweetOrderId=i;
+		this.createdDate=date;
+	}
+
 	@PrePersist
 	private void onCreate() {
 		createdDate = LocalDate.now();
