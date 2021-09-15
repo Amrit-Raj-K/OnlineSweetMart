@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body ">
+            <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+            <div class="px-4 py-5">
+                <h2 class="text-uppercase">{{customer.customername}}</h2>
+                <h3 class="mt-5 theme-color mb-5">Thanks for your order</h3> 
+                <span class="theme-color">Payment Summary</span>
+                <div class="mb-3">
+                    <hr class="new1">
+                </div>
+                <div class="d-flex justify-content-between"> <span class="font-weight-bold">{{sweetitem.sweetItemName}}(Qty:{{cart.sweetItemCount}})</span> <span class="text-muted">₹{{sweetitem.price}}</span> </div>
+                <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span class="font-weight-bold theme-color">₹{{cart.total}}</span> </div>
+                <div class="text-center mt-5"> <button class="btn btn-primary" (click)="onClick()">Continue Shopping</button> </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<div id="app" style="font-size: 20px">
+  <header>
+    <nav class="navbar navbar-expand">
+      <a href="" class="navbar-brand"><i class="bi bi-shop"></i><strong style="font-family: cursive">Sweet
+          Mart</strong></a>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home"><i class="bi bi-house-fill"></i>Home</a>
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard && isLoggedIn">
+          <a href="/admin" class="nav-link" routerLink="admin"><i class="fa fa-tachometer"
+              aria-hidden="true"></i>&nbsp;Admin Board</a>
+        </li>
+        <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
+          <a href="/products" class="nav-link" *ngIf="isLoggedIn" routerLink="sweet"><i class="fa fa-clipboard"
+              aria-hidden="true"></i>&nbsp;Products</a>
+        </li>
+        <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
+          <a href="/cart" class="nav-link" *ngIf="isLoggedIn" routerLink="cartupdate"><i
+              class="bi bi-cart3"></i>&nbsp;Cart</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about" class="nav-link" routerLink="about"><i class="bi bi-file-earmark-person"></i>About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/contact" class="nav-link" routerLink="contact"><i class="fa fa-envelope" aria-hidden="true"></i>
+            Contact Us</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item ">
+          <a href="/register" class="nav-link btn btn-primary" style="color: white" routerLink="register"><i
+              class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+        </li>
+        &nbsp;&nbsp;
+        <li class="nav-item">
+          <a href="/login" class="nav-link btn btn-warning" style="color: white" routerLink="login"><i
+              class="bi bi-box-arrow-in-right"></i>&nbsp;Login</a>
+        </li>
+      </ul>
+
+
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-primary">
+              {{ username }}&nbsp;<i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/profile" class="nav-link" routerLink="showprofile"><i class="fa fa-user"
+                  aria-hidden="true"></i>&nbsp;Profile</a>
+              <div>
+                <a href="/myorders" class="nav-link" routerLink="showallorders">My Orders</a>
+              </div>
+              <a href="/userupdate" class="nav-link" routerLink="editprofile">Update details</a>
+            </div>
+          </div>
+        </li>
+        &nbsp;&nbsp;
+        <li class="nav-item">
+          <a href class="nav-link btn btn-warning" style="color: white" (click)="logout()">LogOut&nbsp;<i
+              class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <marquee behaviour="alternate" BGCOLOR="White">You are what you eat. So have a
+    SWEET.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="bg-warn"><i class="fa fa-exclamation-triangle"
+        aria-hidden="true"></i> Delivery
+      May get delayed due to Restrictions</b></marquee>
+  <br>
+
+  <router-outlet></router-outlet>
+  <br />
+
+  <hr />
+  <div class="footer-clean">
+    <footer>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4 col-md-3 item">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home">Home</a></li>
+              <li><a href="profile" routerLink="showprofile">Profile</a></li>
+              <li><a href="myorders" routerLink="showallorders">My Orders</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="about">Company</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3>Contact Information</h3>
+            <p style="font-size: small"><strong>Address : </strong></p>
+            <p style="font-size: x-small;">West Road, Opp BMW showroom,</p>
+            <p style="font-size: x-small;">Trinity Square,</p>
+            <p style="font-size: x-small;">Los Angeles, 34567</p>
+            <p style="font-size: x-small;">Call :+91 9773944568</p>
+            <p style="font-size: x-small;">Email: sweet.mart@gmail.com</p>
+          </div>
+          <div class="col-lg-3 item social">
+            <a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook">
+
+              </i></a><a href="https://www.twitter.com/" target="_blank"><i class="icon ion-social-twitter">
+
+              </i></a><a href="https://www.snapchat.com/" target="_blank"><i class="icon ion-social-snapchat">
+              </i></a><a href="https://www.instagram.com/" target="_blank"><i class="icon ion-social-instagram"></i></a>
+            <p class="copyright">Sweet Mart © 1947</p>
+          </div>
+        </div>
+      </div>
+    </footer>

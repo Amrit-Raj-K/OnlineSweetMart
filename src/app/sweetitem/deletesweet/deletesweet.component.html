@@ -1,0 +1,70 @@
+<h2
+  style="background-color: coral;text-align: center;color: whitesmoke;text-decoration:underline;padding: 1%; border: 0.2% solid red;"
+  class="animated pulse ">Sweets</h2>
+<hr />
+
+
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" type="text" placeholder="search products here.." [(ngModel)]="searchProduct"
+        placeholder="Search..." />
+      <a class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngFor='let sweet of sweet| sweetfilter: searchProduct; index as i'>
+
+  <div class="row" style="background-color:peachpuff;">
+
+    <div class="col" style="text-align: center;">
+
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" style="background-color:rgb(161, 233, 255)"><b>Product Id: </b></li>
+        <li class="list-group-item">{{sweet.sweetItemId}}</li>
+      </ul>
+
+      <ul class="list-group list-group-centre">
+        <img src="./assets/{{sweet.image}}" style="padding-left: 5%;" height="30%" width="30%" alt="...">
+
+      </ul>
+      <br>
+
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" style="background-color:rgb(161, 233, 255)"><b>Product Name: </b></li>
+        <li class="list-group-item">{{sweet.sweetItemName}}</li>
+      </ul>
+
+      <br>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" style="background-color:rgb(161, 233, 255)"><b>Product Price: </b></li>
+        <li class="list-group-item">{{sweet.price| currency:'INR'}}</li>
+      </ul>
+
+      <ul class="list-group list-group-horizontal">
+        <button (click)="onBack()" class="btn btn-primary">Back to Product List</button><br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button (click)="deleteSweets(sweet.sweetItemId)" class="btn-sm btn-danger">Delete</button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button (click)="edit(sweet)" class="btn btn-primary buttons">edit Item</button><br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button (click)="add()" class="btn btn-primary buttons">Add an Item</button><br>
+      </ul>
+
+      <div class="col">
+        <div class="card" style="width: 28rem;" style="background-color: goldenrod;">
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <br>
+  <br>

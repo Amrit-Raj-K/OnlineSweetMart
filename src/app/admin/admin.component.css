@@ -1,0 +1,26 @@
+button{
+    background-color:#4DA8DA ;
+    border-radius: 5px;
+    border-color: #dcf7c1;
+    text-decoration:none;
+    
+}
+
+a{
+    color:rgb(250, 249, 249);
+}
+
+.card{
+background-color:  #12232E;
+width: 20%;
+float: left;
+}
+
+.adminbody{
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+body{
+    background-color: white;
+}

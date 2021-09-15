@@ -1,0 +1,46 @@
+
+<br/>
+<br/>
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+      <div class="card card-container card-transparent">
+        <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card"
+        />
+<div class="col-md-6 col-md-offset-2">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" autoComplete="off">
+        <div class="form-group">
+            <label for="username" >Username:</label>
+            <input type="text" class="form-control" formControlName="username" id="username">
+            <div *ngIf="submitted && loginForm.controls.username.errors" class="error">
+                <div class="text-danger" *ngIf="loginForm.controls.username.errors.required">Email is required</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" formControlName="password" id="pwd">
+            <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+                <div class="text-danger" *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <button class="btn btn-success">Login</button> &nbsp; &nbsp;
+        <button class="btn btn-danger" type="reset">Cancel</button>
+        <br/><br/>
+        <div *ngIf="invalidLogin" class="error">
+            <div class="text-danger">Invalid credentials.</div>
+        </div>
+    </form>
+</div>
+
+</div>
+</div>
+<div class="col-md-1 col-sm-1">
+  <span class="vertical-line"></span>
+</div>
+<div class="col-md-7 col-sm-7">
+  <img src="https://i.pinimg.com/originals/d6/2d/02/d62d02c61c804cc74e984586c15cab71.jpg" width="90%" height="90%" style="border-radius: 10%;">
+</div>
+</div>

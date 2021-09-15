@@ -1,0 +1,245 @@
+
+
+<form [formGroup]="sweetorderForm" (ngSubmit)="addsweetOrder()" >
+
+
+    <div class="container my-5 d-flex justify-content-center" >
+        <div class="row d-flex justify-content-center ">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header pb-0 bg-white">
+                        <h2 class="font-weight-bold mt-2">Confirm Order</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted "> Your Order will be reviewed by our team neatly organized,packaged,and shipped directly to you.</p><mark><small class="font-weight-bold">EASY SHIPPING</small></mark> <img src="https://i.imgur.com/BjJwzgo.jpg" class="img-fluid" />
+                        <div class="row justify-content-center mt-4">
+                            <div>
+                             <input type="submit" value="Confirm"  class="btn btn-outline-success btn-block font-weight-bold text-dark" [disabled]="sweetorderForm.invalid">&nbsp;&nbsp;
+                             <button (click)="back()" type="button" class="btn btn-outline-success btn-block font-weight-bold text-dark">Back</button>
+                             </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     </div>
+
+
+    
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.sweetOrderId.errors && 
+        (sweetorderForm.controls.sweetOrderId.touched || sweetorderForm.controls.sweetOrderId.dirty)">
+           SweetorderId is required
+        </div>
+        <label for="sweetOrderId"></label>
+        <input class="form-control" type="hidden" name="sweetOrderId" id="sweetOrderId" formControlName="sweetOrderId">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.createdDate.errors && 
+        (sweetorderForm.controls.createdDate.touched || sweetorderForm.controls.createdDate.dirty)">
+            Date is required
+        </div>
+        <label for="createdDate"></label>
+        <input class="form-control" type="hidden" name="createdDate" id="createdDate" formControlName="createdDate">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.itemid.errors && 
+        (sweetorderForm.controls.itemid.touched || sweetorderForm.controls.itemid.dirty)">
+           Item id is required
+        </div>
+        <label for="itemid"></label>
+        <input class="form-control" type="hidden" name="itemid" id="itemid" formControlName="itemid">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.customerId.errors && 
+        (sweetorderForm.controls.customerId.touched || sweetorderForm.controls.customerId.dirty)">
+            customerId is required
+        </div>
+        <label for="customerId"></label>
+        <input class="form-control" type="hidden" name="customerId" id="customerId" formControlName="customerId">
+    </div>
+
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.username.errors && 
+        (sweetorderForm.controls.username.touched || sweetorderForm.controls.username.dirty)">
+            username is required
+        </div>
+        <label for="username"></label>
+        <input class="form-control" type="hidden" name="username" id="username" formControlName="username">
+    </div>
+
+     
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.password.errors && 
+        (sweetorderForm.controls.password.touched || sweetorderForm.controls.password.dirty)">
+        password is required
+        </div>
+        <label for="password"></label>
+        <input class="form-control" type="hidden" name="password" id="password" formControlName="password">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.customername.errors && 
+                (sweetorderForm.controls.customername.touched || sweetorderForm.controls.customername.dirty)">
+            customer Name is required
+        </div>
+        <label for="customername"></label>
+        <input class="form-control" type="hidden" name="customername" id="customername" formControlName="customername">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.city.errors && 
+        (sweetorderForm.controls.city.touched || sweetorderForm.controls.city.dirty)">
+            Customer City is required
+        </div>
+
+        <label for="city"> </label>
+        <input class="form-control" type="hidden" name="city" id="city" formControlName="city">
+    </div>
+
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.zip.errors && 
+        (sweetorderForm.controls.zip.touched || sweetorderForm.controls.zip.dirty)">
+            zip is required
+        </div>
+
+        <label for="zip"></label>
+        <input class="form-control" type="hidden" name="zip" id="zip" formControlName="zip">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.contactNumber.errors && 
+        (sweetorderForm.controls.contactNumber.touched || sweetorderForm.controls.contactNumber.dirty)">
+       phoneNo is required
+        </div>
+
+        <label for="contactNumber"></label>
+        <input class="form-control" type="hidden" name="contactNumber" id="contactNumber" formControlName="contactNumber">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.type.errors && 
+        (sweetorderForm.controls.type.touched || sweetorderForm.controls.type.dirty)">
+        type is required
+        </div>
+        <label for="type"></label>
+        <input class="form-control" type="hidden" name="type" id="type" formControlName="type">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.cartId.errors && 
+        (sweetorderForm.controls.cartId.touched || sweetorderForm.controls.cartId.dirty)">
+        cartId is required
+        </div>
+        <label for="cartId"></label>
+        <input class="form-control" type="hidden" name="cartId" id="cartId" formControlName="cartId">
+    </div>
+
+
+    
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.grandTotal.errors && 
+        (sweetorderForm.controls.grandTotal.touched || sweetorderForm.controls.grandTotal.dirty)">
+        grandTotal is required
+        </div>
+        <label for="grandTotal"></label>
+        <input class="form-control" type="hidden" name="grandTotal" id="grandTotal" formControlName="grandTotal">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.total.errors && 
+        (sweetorderForm.controls.total.touched || sweetorderForm.controls.total.dirty)">
+        total is required
+        </div>
+        <label for="total"></label>
+        <input class="form-control" type="hidden" name="total" id="total" formControlName="total">
+    </div>
+
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.sweetItemCount.errors && 
+        (sweetorderForm.controls.sweetItemCount.touched || sweetorderForm.controls. sweetItemCount.dirty)">
+        sweetItemCount is required
+        </div>
+        <label for="sweetItemCount"></label>
+        <input class="form-control" type="hidden" name="sweetItemCount" id=" sweetItemCount" formControlName="sweetItemCount">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.sweetItemId.errors && 
+        (sweetorderForm.controls.sweetItemId.touched || sweetorderForm.controls.sweetItemId.dirty)">
+        sweetItemId is required
+        </div>
+        <label for="sweetItemId"></label>
+        <input class="form-control" type="hidden" name="sweetItemId" id="sweetItemId" formControlName="sweetItemId">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.sweetItemName.errors && 
+        (sweetorderForm.controls.sweetItemName.touched || sweetorderForm.controls.sweetItemName.dirty)">
+        sweetItemName is required
+        </div>
+        <label for="sweetItemName"></label>
+        <input class="form-control" type="hidden" name="sweetItemName" id="sweetItemName" formControlName="sweetItemName">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.image.errors && 
+        (sweetorderForm.controls.image.touched || sweetorderForm.controls.image.dirty)">
+           Photo is required
+        </div>
+    
+    <label for="image"></label>
+    
+    <input class="form-control" type="hidden" name="image" id="image" formControlName="image">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.price.errors && 
+        (sweetorderForm.controls.price.touched || sweetorderForm.controls.price.dirty)">
+        price is required
+        </div>
+        <label for="price"></label>
+        <input class="form-control" type="hidden" name="price" id="price" formControlName="price">
+    </div>
+
+
+ <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.categoryId.errors && 
+        (sweetorderForm.controls.categoryId.touched || sweetorderForm.controls.categoryId.dirty)">
+        categoryId is required
+        </div>
+        <label for="categoryId"></label>
+        <input class="form-control" type="hidden" name="categoryId" id="categoryId" formControlName="categoryId">
+    </div>
+
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.name.errors && 
+        (sweetorderForm.controls.name.touched || sweetorderForm.controls.name.dirty)">
+        name is required
+        </div>
+        <label for="name"></label>
+        <input class="form-control" type="hidden" name="name" id="name" formControlName="name">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="sweetorderForm.controls.description.errors && 
+        (sweetorderForm.controls.description.touched || sweetorderForm.controls.description.dirty)">
+        description is required
+        </div>
+        <label for="description"></label>
+        <input class="form-control" type="hidden" name="description" id="description" formControlName="description">
+    </div>
+  
+</form>
+<button style="float: right;" *ngIf="isShow" (click)="gotoTop()">👆</button>
+
+
+
+

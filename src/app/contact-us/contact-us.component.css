@@ -1,0 +1,76 @@
+/* body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: rgb(35, 138, 221);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #067591;
+}
+
+.container {
+    margin-left: 75%;
+    width: 400px;
+  border-radius: 5px;
+  background-color: #a59e9ed0;
+  padding: 20px;
+}
+
+#img{
+  background-image: url('https://static-cse.canva.com/blob/137052/40-examples-to-help-you-build-the-perfect-contact-us-page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 75% 100%;
+}
+
+#map{
+  margin-top: 0%;
+  margin-left: 75%;
+}
+
+#text{
+  margin-right: 75%;
+}
+
+.fa{
+  font-size:25px
+}
+ */
+
+ .jumbotron {
+  background: #358CCE;
+  color: #FFF;
+  border-radius: 0px;
+  }
+  .jumbotron-sm { padding-top: 24px;
+  padding-bottom: 24px; }
+  .jumbotron small {
+  color: #FFF;
+  }
+  .h1 small {
+  font-size: 24px;
+  }
+
+  .row-mar{ 
+    margin-left: 5%;
+  }
+  p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }

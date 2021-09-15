@@ -1,0 +1,89 @@
+<body class="bg">
+    <div class="alert alert-primary">
+        <h3
+            style="text-align: center;padding-top: 5%;font-size: medium;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <strong>Add Sweet Form</strong></h3>
+    </div>
+    <div class="wrapper wrapper--w790 ">
+        <form [formGroup]="sweetForm" (ngSubmit)="createSweet()">
+            <div class="card body ">
+                <div class="form-group" hidden>
+                    <div *ngIf="sweetForm.controls.sweetItemId.errors && 
+            (sweetForm.controls.sweetItemId.touched || sweetForm.controls.sweetItemId.dirty)">
+                        Sweet Id is required
+                    </div>
+                    <label for="sweetItemId">Sweet Id</label>
+                    <input class="form-control" type="text" name="sweetItemId" id="sweetItemId"
+                        formControlName="sweetItemId">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <div *ngIf="sweetForm.controls['sweetItemName'].invalid && sweetForm.controls['sweetItemName'].touched"
+                        class="alert-alert-danger">
+                        Invalid
+                        <div *ngIf="sweetForm.controls['sweetItemName'].errors.required">
+                            Sweet Name is required
+
+                        </div>
+                    </div>
+
+                    <label class="font" for="sweetItemName">Sweet Name</label>
+
+                    <input class="form-control" type="text" name="sweetItemName" id="sweetItemName"
+                        formControlName="sweetItemName">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <div *ngIf="sweetForm.controls['price'].invalid && sweetForm.controls['price'].touched"
+                        class="alert-alert-danger">
+                        Invalid
+                        <div *ngIf="sweetForm.controls['price'].errors.required">
+                            Price is required
+                        </div>
+                    </div>
+                    <label class="font" for="price">Sweet Price </label>
+                    <input class="form-control" type="text" name="price" id="price" formControlName="price">
+                </div>
+                <br>
+
+
+                <div class="form-group">
+                    <div *ngIf="sweetForm.controls.image.errors && 
+            (sweetForm.controls.image.touched || sweetForm.controls.image.dirty)">
+                        Image Id is required
+                    </div>
+
+                    <label class="font" for="image">Image </label>
+                    <input class="form-control" type="text" name="image" id="image" formControlName="image">
+                </div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <div *ngIf="sweetForm.controls.name.errors && 
+            (sweetForm.controls.name.touched || sweetForm.controls.name.dirty)">
+                        Name is required
+                    </div>
+                    <div class="font">
+                        Category Name:
+                    </div>
+                    <select class="font" formControlName="name">
+                        <option [ngValue]="null" disabled>Choose your Category Name</option>
+                        <option *ngFor="let prf of ProductCategory" [ngValue]="prf">
+                            {{ prf.name }}
+                        </option>
+                    </select>
+                </div>
+                <br>
+
+            </div>
+            <input style="margin-left: 85%;padding: 1%;" type="submit" value="Add Sweet" class="btn btn-primary font"
+                [disabled]="sweetForm.invalid">
+        </form>
+    </div>

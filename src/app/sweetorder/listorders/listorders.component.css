@@ -1,0 +1,9 @@
+.parent {
+    width: 180px; /* I took the width from your post and placed it in css */
+    height: 150px;
+ }
+ .parent img {
+    height: 100%;
+    width: 100%;
+ }
+

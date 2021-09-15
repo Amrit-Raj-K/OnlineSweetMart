@@ -1,0 +1,202 @@
+<body>
+  <div class="card card-container">
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+
+    <div class="alert alert-primary">
+      <h3> Customer Register Form</h3>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="createCustomer()">
+
+      <div class="form-group" hidden>
+        <div *ngIf="registerForm.controls.customerId.errors && 
+        (registerForm.controls.customerId.touched ||registerForm.controls.customerId.dirty)">
+          customerId is required
+        </div>
+        <label for="customerId">customerId</label>
+        <input class="form-control" type="hidden" name="customerId" id="customerId" formControlName="customerId">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['username'].errors.required">
+
+            User Name is required
+          </div>
+        </div>
+        <label for="username">username</label>
+        <input class="form-control" type="text" name="username" id="username" formControlName="username">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['customername'].invalid && registerForm.controls['customername'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['customername'].errors.required">
+
+            Name is required
+          </div>
+        </div>
+        <label for="customername">Customer Name</label>
+        <input class="form-control" type="text" name="customername" id="customername" formControlName="customername">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['password'].errors.required">
+
+            password is required
+          </div>
+        </div>
+        <label for="password">password</label>
+        <input class="form-control" type="password" name="password" id="password" formControlName="password">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['city'].invalid && registerForm.controls['city'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['city'].errors.required">
+
+            city is required
+          </div>
+        </div>
+
+        <label for="city"> City</label>
+        <input class="form-control" type="text" name="city" id="city" formControlName="city">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['type'].invalid && registerForm.controls['type'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['type'].errors.required">
+
+            type is required
+          </div>
+        </div>
+        <label for="type"></label>
+        <input class="form-control" type="hidden" name="type" id="type" formControlName="type">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['zip'].invalid && registerForm.controls['zip'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['zip'].errors.required">
+
+            Zip is required
+          </div>
+        </div>
+
+        <label for="zip">zip</label>
+        <input class="form-control" type="text" name="zip" id="zip" formControlName="zip">
+      </div>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls['contactNumber'].invalid && registerForm.controls['contactNumber'].touched"
+          class="alert-alert-danger">
+          Invalid
+          <div *ngIf="registerForm.controls['contactNumber'].errors.required">
+
+            Contact number is required
+          </div>
+        </div>
+
+        <label for="contactNumber">phoneNo</label>
+        <input class="form-control" type="text" name="contactNumber" id="contactNumber" formControlName="contactNumber">
+      </div>
+
+      <input type="submit" value="Create Account" class="btn btn-primary">
+      <!------------------------------------------cart------------------------------------------------------------>
+
+      <div class="form-group">
+        <div *ngIf="registerForm.controls.cartId.errors && 
+        (registerForm.controls.cartId.touched || registerForm.controls.cartId.dirty)">
+          cartId is required
+        </div>
+
+        <label for="cartId"> </label>
+        <input class="form-control" type="hidden" name="cartId" id="cartId" formControlName="cartId">
+      </div>
+
+      <div class="form-group">
+
+        <label for="grandTotal"></label>
+        <input class="form-control" type="hidden" name="grandTotal" id="grandTotal" formControlName="grandTotal">
+      </div>
+
+      <div class="form-group">
+
+
+        <label for="total"></label>
+        <input class="form-control" type="hidden" name="total" id="total" formControlName="total">
+      </div>
+
+      <div class="form-group">
+
+
+        <label for="sweetItemCount"></label>
+        <input class="form-control" type="hidden" name="sweetItemCount" id="sweetItemCount"
+          formControlName="sweetItemCount">
+      </div>
+
+
+
+      <div class="form-group">
+
+
+        <label for="sweetItemId"> </label>
+        <input class="form-control" type="hidden" name="sweetItemId" id="sweetItemId" formControlName="sweetItemId">
+      </div>
+
+      <div class="form-group">
+
+        <label for="sweetItemName"></label>
+        <input class="form-control" type="hidden" name="sweetItemName" id="sweetItemName"
+          formControlName="sweetItemName">
+      </div>
+
+      <div class="form-group">
+
+
+        <label for="price"></label>
+        <input class="form-control" type="hidden" name="price" id="price" formControlName="price">
+      </div>
+      <div class="form-group">
+
+
+        <label for="image"></label>
+
+        <input class="form-control" type="hidden" name="image" id="image" formControlName="image">
+      </div>
+      <!------------------------------------------------------------------------------------------------------------------------------>
+      <div class="form-group">
+
+
+        <label for="city"></label>
+        <input class="form-control" type="hidden" name="categoryId" id="categoryId" formControlName="categoryId">
+      </div>
+
+      <div class="form-group">
+
+
+        <label for="name"></label>
+        <input class="form-control" type="hidden" name="name" id="name" formControlName="name">
+      </div>
+
+      <div class="form-group">
+
+
+        <label for="description"> </label>
+        <input class="form-control" type="hidden" name="description" id="description" formControlName="description">
+      </div>
+
+
+
+    </form>
+  </div>
+</body>

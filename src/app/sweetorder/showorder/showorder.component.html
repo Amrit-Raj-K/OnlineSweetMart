@@ -1,0 +1,61 @@
+<body>
+   <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
+      integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-9">
+            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+               <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                     <h2 class="font-weight-bold mt-0 mb-4">Order history</h2>
+                     <div class="bg-white card mb-4 order-list shadow-sm" *ngFor='let sweet of arraylist; index as i'>
+
+                        <div class="gold-members p-4">
+                           <a href="#">
+                           </a>
+                           <div class="media">
+                              <div>
+                               <div class="parent">
+                                 <img src="./assets/{{sweet.name.image}}" (click)="Sweet()" style="padding-left: 5%;"
+                                    height="40%" width="40%" alt="...">
+                               </div>
+                                 <div class="media-body">
+
+                                    <h3 class="mb-2">
+
+                                       <p class="text-black">{{sweet.name.sweetItemName}}</p>
+                                    </h3>
+                                    <p class="text-dark">price:{{sweet.name.price|currency:"INR"}}
+                                    </p>
+                                    <p class="text-dark">Purchased on:{{Orders[i].createdDate}} by {{Orders[i].customers.customername}}</p>
+                                 </div>
+                                 <hr>
+                                 <div class="float-right">
+                                    <button class="btn btn-sm btn-outline-primary" (click)="help()"><i
+                                          class="icofont-headphone-alt"></i> HELP</button>
+                                 </div>
+
+
+                              </div>
+
+                           </div>
+
+                        </div>
+
+
+                     </div>
+
+                  </div>
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+
+   </div>
+
+</body>

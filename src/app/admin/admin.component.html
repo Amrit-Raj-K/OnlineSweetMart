@@ -1,0 +1,75 @@
+<body>
+  <div>
+    <h1 style="text-align: center; font-style: oblique; background-color: #e62200; color: white;">Admin Dash Board</h1>
+  </div>
+  <div class="adminbody">
+    <button style="margin-right: 10px; background-color: rgb(235, 31, 31);">
+      <a routerLink="/deletesweet" class="nav-link" routerLinkActive="active"><i class="fa fa-plus-square-o"
+          aria-hidden="true"></i>&nbsp;Edit Sweet Item</a>
+
+    </button>
+    <button style="margin-left: 10px;background-color: rgb(235, 31, 31);">
+      <a routerLink="/maintain" class="nav-link" routerLinkActive="active"><i class="fa fa-plus-square-o"
+          aria-hidden="true"></i>&nbsp;Edit Product Category</a>
+    </button>
+  </div>
+  <div class="card">
+    <button>
+      <a routerLink="/sweet-add" class="nav-link" routerLinkActive="active"><i class=" fa fa-plus-square-o"
+          aria-hidden="true"></i>&nbsp;Add Sweet Item</a>
+    </button>
+    <br>
+    <br>
+    <button>
+      <a routerLink="/addproduct" class="nav-link" routerLinkActive="active"><i class="fa fa-plus-square-o"
+          aria-hidden="true"></i>&nbsp;Add product Category</a>
+    </button>
+    <br><br>
+    <button>
+      <a routerLink="/update" class="nav-link" routerLinkActive="active"><i class="fa fa-plus-square-o"
+          aria-hidden="true"></i>&nbsp;Update Product Category</a>
+    </button>
+  </div>
+  <br><br>
+
+
+
+
+  <!-- Page content -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="container">
+    <div class="row">
+      <ngb-carousel>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="../../assets/Desktop1.jpg" alt="Random fourth slide" height="500px" width="100%">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="../../assets/sweet1.jpg" alt="Random first slide" height="500px" width="100%"
+              style="border-radius: 4px;">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="../../assets/sweet2.jpg" alt="Random second slide" height="500px" width="100%">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="../../assets/sweet3.jpg" alt="Random third slide" height="500px" width="100%">
+          </div>
+        </ng-template>
+
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="../../assets/Desktop3.jpg" alt="Random fifth slide" height="500px" width="100%">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</body>

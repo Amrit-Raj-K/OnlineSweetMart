@@ -1,0 +1,11 @@
+.required-field::after{
+    content: "*";
+    color:red;
+
+}
+
+look{
+    background-color: rgba(245, 245, 245, 0.664);
+    border-bottom: red;
+    border-top: whitesmoke;
+}

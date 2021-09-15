@@ -1,0 +1,57 @@
+ <!--Navigation Bar-->
+ <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" (click)="getProducts()" style="font-weight: 900;">
+        <i>Sweet Mart  </i>
+      </a>
+      &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+      <p id="hover" style="text-align: center; padding-left: 100px;"><i><b><b>ProductCategory</b></b></i></p><br>
+      <button [routerLink]="['/sweet']" style="margin-left: 150px ;" type="button" class="btn btn-dark">
+        <b><i>Back</i></b> &nbsp;<i class="bi bi-cart-fill"></i>
+      </button>
+      
+    </div>
+  </nav>
+  <br><br><br>
+
+
+
+  <!--filter-->
+  <div class="form-group" style="padding-left:500px;">
+    <input type="text" class="form-control" placeholder="search products here.." style="width: 300px;"
+      [(ngModel)]="searchProduct" />
+  </div>
+  <br><br><br>
+
+
+  <!--Content-->
+  <div class="container text-center">
+    <div class="row"><br><br><br>
+      <div class="col-4" *ngFor="let product of products | productFilter: searchProduct; index as i">
+        <div id="border" class="card">
+          <div class="card-body">
+            <h2 class="card-title"><b>{{product.name | uppercase }} </b>  </h2>
+            <p class="card-text"> <i>
+                <p><b> Description: </b>{{product.description}}</p>
+              </i>
+              
+            
+          </div>
+
+          
+
+          
+
+
+         
+            <p style="color: rgb(0, 255, 157)"><b><i>Available Now..  </i></b></p>
+          </div>
+        </div><br>
+      </div>
+    </div>
+  
+</body>
+
+
+    

@@ -1,0 +1,44 @@
+Create table productcategory(categoryid number(15) primary key,name varchar2(40),description varchar2(800));
+
+create table sweetitem(sweetitemid number(15) primary key, sweetitemname VARCHAR2(40),price number(8,2),image varchar2(800),categoryid number(15) references productcategory(categoryid));
+
+
+Create table cart(cartid number(15) primary key, grandtotal number(8,2),total number(8,2), sweetitemcount number(15),sweetitemid number(15) references sweetitem(sweetitemid));
+
+Create table customer(customerid number(15) primary key,username varchar2(50),password varchar2(15),customername  varchar2(40),city varchar(40),
+zip varchar(20),contactnumber varchar(20),type varchar(20),cartid number(15) references cart(cartid));
+
+
+
+Create table sweetorder(sweetorderid number(15) primary key,createddate date,itemid number,customerid number(15) references customer(customerid));
+
+
+create table orderbill(orderbillid number(15) primary key,createddate date,totalcost number(8,2),sweetorderid number(15) references sweetorder(sweetorderid) );
+
+alter table customer add unique(username);
+
+alter table sweetitem add unique(sweetitemname);
+
+alter table productcategory add unique(name);
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+insert into productcategory values(2,'laddu','Sweetest laddu of all time');
+
+insert into sweetitem values(2,'Chocolate Laddu',100,'chocolate.jpg',2);
+
+insert into cart values(2,200,100,2,2);
+insert into cart values(3,200,100,2,2);
+
+insert into customer values(2,'amrit1@gmail.com','password','Amrit Raj','Washington','547832','56834536763','2',2);
+
+insert into customer values(3,'amrit@gmail.com','password','Amrit','Washington','547832','56834536763','1',3);
+
+insert into sweetorder values(2,'10-Aug-2021',2,2);
+
+insert into orderbill values(2,'10-Aug-2021',200,2);
+
+
+
+
+

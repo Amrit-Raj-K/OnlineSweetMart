@@ -1,0 +1,153 @@
+
+<div class="alert alert-primary">
+    <h3>Update cart Form</h3>
+</div>
+<form [formGroup]="cartForm" (ngSubmit)="updateCart()">
+    <div>
+        <table class="table table-hover" border="1">
+        <thead class="thead-dark">
+            <tr>
+            <th>Sweet</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            </tr>
+        </thead>
+        <tbody class="tbody-light">
+  <tr>
+            <td> <img class="img-thumbnail" src="https://i0.wp.com/foodindian.org/wp-content/uploads/chocolate-dates-laddu-4.jpg?resize=640%2C559&ssl=1" width="50" height="50" alt=""></td>
+            <td><input class="form-control" type="text" name="sweetItemName" id="sweetItemName" readonly formControlName="sweetItemName"></td>
+        
+          
+           <td><input class="form-control" type="number" (input)="keyFunc($event)" name="sweetItemCount" id="sweetItemCount" formControlName="sweetItemCount"></td>
+          
+           <td>  <input class="form-control" type="number" name="price" id="price" readonly formControlName="price"></td>
+      
+           <td><input class="form-control" type="number" name="total" id="total" readonly formControlName="total"></td>
+            </tr>
+        </tbody>
+        </table>
+        <button type="submit" class="button" margin="">Checkout</button>
+   
+        </div>
+
+
+
+
+<!------------------------------------------cart------------------------------------------------------------>
+
+    <div class="form-group">
+        <div *ngIf="cartForm.controls.cartId.errors && 
+        (cartForm.controls.cartId.touched || cartForm.controls.cartId.dirty)">
+        cartId is required
+        </div>
+
+        <label for="cartId"> </label>
+        <input class="form-control" type="hidden" name="cartId" id="cartId" formControlName="cartId">
+    </div>
+
+    <div class="form-group">
+        <div *ngIf="cartForm.controls.grandTotal.errors && 
+        (cartForm.controls.grandTotal.touched || cartForm.controls.grandTotal.dirty)">
+        grandTotal is required
+        </div>
+        <label for="grandTotal"></label>
+        <input class="form-control" type="hidden" name="grandTotal" id="grandTotal" formControlName="grandTotal">
+    </div>
+
+    <div class="form-group">
+        <div *ngIf="cartForm.controls.total.errors && 
+        (cartForm.controls.total.touched || cartForm.controls.total.dirty)">
+        total is required
+        </div>
+
+        <label for="total"></label>
+        <input class="form-control" type="hidden" name="total" id="total" formControlName="total">
+    </div>
+
+    <div class="form-group">
+        <div *ngIf="cartForm.controls.sweetItemCount.errors && 
+        (cartForm.controls.sweetItemCount.touched || cartForm.controls.sweetItemCount.dirty)">
+        sweetItemCount is required
+        </div>
+
+        <label for="sweetItemCount"></label>
+        <input class="form-control" type="hidden" (input)="keyFunc($event)" name="sweetItemCount" id="sweetItemCount" formControlName="sweetItemCount">
+    </div>
+           
+<!----------------------------------sweetitem------------------------------------------------------------------->
+
+    <div class="form-group">
+      <div *ngIf="cartForm.controls.sweetItemId.errors && 
+        (cartForm.controls.sweetItemId.touched || cartForm.controls.sweetItemId.dirty)">
+        sweetItemId is required
+        </div>
+
+        <label for="sweetItemId"> </label>
+        <input class="form-control" type="hidden" name="sweetItemId" id="sweetItemId" formControlName="sweetItemId">
+    </div>
+
+    <div class="form-group">
+       <div *ngIf="cartForm.controls.sweetItemName.errors && 
+        (cartForm.controls.sweetItemName.touched || cartForm.controls.sweetItemName.dirty)">
+        sweetItemName is required
+        </div>
+        <label for="sweetItemName"></label>
+        <input class="form-control" type="hidden" name="sweetItemName" id="sweetItemName" formControlName="sweetItemName">
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="cartForm.controls.price.errors && 
+        (cartForm.controls.price.touched || cartForm.controls.price.dirty)">
+            Sweet Price is required
+        </div>
+
+        <label for="price"> </label>
+        <input class="form-control" type="hidden" name="price" id="price" formControlName="price">
+    </div>
+
+    
+        <div class="form-group" hidden>
+            <div *ngIf="cartForm.controls.image.errors && 
+            (cartForm.controls.image.touched || cartForm.controls.image.dirty)">
+               Photo is required
+            </div>
+    
+      <label for="image"></label>
+    
+        <input class="form-control" type="hidden" name="image" id="image" formControlName="image">
+        </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="cartForm.controls.categoryId.errors && 
+        (cartForm.controls.categoryId.touched || cartForm.controls.categoryId.dirty)">
+            Category Id is required
+        </div>
+
+  <label for="categoryId"></label>
+        <input class="form-control" type="hidden" name="categoryId" id="categoryId" formControlName="categoryId" >
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="cartForm.controls.name.errors && 
+        (cartForm.controls.name.touched || cartForm.controls.name.dirty)">
+           Category name is required
+        </div>
+
+        <label for="name"></label>
+        <input class="form-control" type="hidden" name="name" id="name" formControlName="name" >
+    </div>
+
+    <div class="form-group" hidden>
+        <div *ngIf="cartForm.controls.description.errors && 
+        (cartForm.controls.description.touched || cartForm.controls.description.dirty)">
+            Category description is required
+        </div>
+
+        <label for="description"> </label>
+        <input class="form-control" type="hidden" name="description" id="description" formControlName="description" >
+    </div>
+
+
+</form>

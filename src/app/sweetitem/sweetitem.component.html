@@ -1,0 +1,73 @@
+<body class=" bg-primary" style="background-color:rgb(255, 255, 255);">
+
+  <hr />
+
+  <!--filter-->
+
+  <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+      <div class="searchbar">
+        <input class="search_input" type="text" placeholder="search products here.." [(ngModel)]="searchProduct"
+          placeholder="Search..." />
+        <a class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- The cards of items that are shown -->
+
+  <section class="wrapper  card-deck ">
+    <div class="container">
+      <div class="row row-cols-3  ">
+
+
+
+        <div *ngFor='let sweet of sweet| sweetfilter: searchProduct; index as i '>
+
+          <div class="row">
+
+            <div class="card card-block">
+              <p class="card-title text-right"><i class="material-icons">star</i></p>
+
+              <img src="./assets/{{sweet.image}}" alt="images" (click)="ImageClick()">
+
+              <small class="card-meta mb-2  btn btn-primary " style="font-size: 200%;">{{sweet.sweetItemName |
+                uppercase}}</small>
+              <div class="card-footer">
+
+<!-- providing customer rating section -->
+
+                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+
+
+
+
+
+
+
+                <div class="media">
+
+                  <div class="media-body">
+                    <ul class="list-group list-group-centre">
+                      <p style="font-size: 200%;color:#1f1c1c;">{{sweet.price| currency:'INR'}}</p>
+                      <img src="./assets/carticon.png" style="padding-left: 5%;" height="20%" width="20%" alt="...">
+                      <button (click)="ontoCart(sweet)" class="btn btn-primary buttons">
+                        Move to Cart</button><br>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+</body>

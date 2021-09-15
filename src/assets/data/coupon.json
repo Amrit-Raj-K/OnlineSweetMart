@@ -1,0 +1,5 @@
+[
+    {"id":1,"coupon":"JOLLY15","discount":0.1},
+    {"id":2,"coupon":"FESTIVE10","discount":0.2},
+    {"id":3,"coupon":"HOLIDAYSPIRIT","discount":0.3}
+    ]

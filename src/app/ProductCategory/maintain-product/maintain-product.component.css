@@ -1,0 +1,9 @@
+body
+{
+
+ background-image: url('/assets/7.jpg');
+  background-attachment: fixed;
+      background-size: cover;
+    height: 700px;
+    
+}

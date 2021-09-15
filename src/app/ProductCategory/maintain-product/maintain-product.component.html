@@ -1,0 +1,58 @@
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/admin']" style="font-weight: 700;">
+        <i>Sweet Mart</i>
+      </a>
+      <h3 id="hover" style="text-align: center;"><i><b>ProductCategory</b></i> &nbsp; <i class="bi bi-house-fill"></i> </h3>
+      <button [routerLink]="['/addproduct']" class="btn btn-outline-primary" type="submit"><b><i>Add New
+            Product</i></b></button>
+    </div>
+  </nav>
+  
+  
+  
+  
+  
+  <!--content-->
+  <body>
+    <br>
+    <br><br>
+    <div class="container">
+  
+  
+  <!--filter-->
+  <div class="form-group" style="padding-left:400px;">
+    <input type="text" class="form-control" placeholder="search products" style="width: 300px;"
+      [(ngModel)]="searchProduct" />
+  </div>
+  <br>
+  
+      <table class="table">
+        <thead>
+          <tr class="table-success">
+            <th><i>Product Id</i></th>
+            <th><i>Product Name</i></th>
+            <th ><i>Description</i></th>
+            
+    
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-dark" *ngFor="let product of products | productFilter: searchProduct">
+            <td><b>{{product.categoryId}}</b></td>
+            <td><b><i>{{product.name}}</i></b> </td>
+            <td><b><i>{{product.description}}</i></b></td>
+            
+           
+            <td><button (click)="updateProduct(product.categoryId)" class="btn btn-outline-info"
+                type="submit"><b><i>Update</i></b></button></td>
+            <td><button (click)="deleteProduct(product.categoryId)" class="btn btn-outline-danger"
+                type="submit"><b><i>Delete</i></b></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>

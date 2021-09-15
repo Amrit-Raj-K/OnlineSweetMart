@@ -1,0 +1,19 @@
+
+  body{
+    background-image: linear-gradient(to center,#f7fad9, #dbffc5);
+    background-image: url('/assets/9.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 700px;
+  }
+  
+  
+
+  h1{
+    font-family: Georgia, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+  }
+  

@@ -1,0 +1,23 @@
+
+
+.card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
+    background-color: #ffffffe3;
+  }
+  
+  .form-control:disabled,
+  .form-control[readonly] {
+    opacity: 1;
+    background-color: white;
+  }
+  
+  .col-lg-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+  
+  #selector::first-letter{
+   text-transform: uppercase;
+  }
+  

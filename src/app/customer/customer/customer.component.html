@@ -1,0 +1,302 @@
+<br>
+
+  <body >
+   <div class="main-content"  *ngFor='let c of customer'>
+           
+            <!-- Page content -->
+      <div class="container"  >
+        <div class="row" >
+               
+          <div class="col-xl-12 order-xl-1" >
+             <div class="card bg-primary shadow">
+
+              <div class="card-header bg-white border-0">
+                          <h2 class="mb-10">My Account</h2>
+                 </div>
+
+               <div class="card-body">
+                  <form >
+                   <h3 class="heading-small text-primary mb-4">Basic Information</h3>
+                       
+                   <div class="row">
+
+                    <div class="col-lg-6">
+                       <label class="form-control-label" >Email address</label>
+                      <input type="email"  class="form-control "  value={{c.username}} readonly>
+                         <br>
+                      </div>
+
+                   <div class="col-lg-6">
+                             
+                   <label class="form-control-label" >Name</label>
+                      <input type="text"  class="form-control " style= "text-transform: capitalize;" value={{c.customername}} readonly>
+                              
+                    </div>
+                   <br>
+                  </div>
+
+                    <div class="row">
+                            <div class="col-lg-6">
+                              
+                                <label class="form-control-label" >Password</label>
+                                <input type="password"  class="form-control "  value={{c.password}} readonly>
+                             
+                            </div>
+                            <div class="col-lg-6">
+                              
+                                <label class="form-control-label" >Contact Number</label>
+                                <input type="text"  class="form-control " value={{c.contactNumber}} readonly>
+                             
+                            </div>
+                          </div>
+                        <br>
+                        <hr class="my-4">
+                        <!-- Address -->
+                        <h3 class="heading-small text-primary mb-4">Contact information</h3>
+                        
+                          <div class="row">
+                            <div class="col-md-12">
+                             
+                                <label class="form-control-label" >City</label>
+                                <input  class="form-control form-control-alternative" style= "text-transform: capitalize;" value={{c.city}}  type="text" readonly>
+                              
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-lg-4">
+                             
+                                <label class="form-control-label" >Zip Code</label>
+                                <input type="text" id="input-city" class="form-control " value={{c.zip}} readonly >
+                              
+                            </div>
+                            
+                            
+                          </div>
+                        
+                    <br>
+                    <br>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </body>
+        <br><br><br>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container" *ngFor='let c of customer'>
+      
+   
+
+ <div class="row">
+     <div class="col-sm-3 col-md-2 col-5" >
+         <label style="font-weight:bold;"><strong>Email Id</strong></label>
+      </div>
+            <div class="col-md-8 col-6">
+                 {{c.username}}
+             </div>
+       </div>
+
+             <hr />
+
+     <div class="row">
+         <div class="col-sm-3 col-md-2 col-5">
+                <label style="font-weight:bold;"><strong>Name</strong></label>
+          </div>
+               <div class="col-md-8 col-6">
+                     {{c.customername}}
+               </div>
+      </div>
+
+      <hr />
+      <div class="row">
+            <div class="col-sm-3 col-md-2 col-5">
+                 <label style="font-weight:bold;"><strong>Mobile Number</strong></label>
+             </div>
+               <div class="col-md-8 col-6">
+                 {{c.phoneNo}}
+                  </div>
+       </div>
+
+             <hr />
+                                        
+                                        
+     <div class="row">
+           <div class="col-sm-3 col-md-2 col-5">
+                <label style="font-weight:bold;"><strong>City</strong></label>
+            </div>
+             <div class="col-md-8 col-6">
+                {{c.city}}
+              </div>
+      </div>
+
+          
+
+                <hr />
+     <div class="row">
+            <div class="col-sm-3 col-md-2 col-5">
+                 <label style="font-weight:bold;"><strong>Zip Code</strong></label>
+              </div>
+           <div class="col-md-8 col-6">
+                {{c.zip}}
+             </div>
+    </div>
+
+            <hr/>
+ </div>
+   
+-->                   
+          
+        
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="col-lg-8" *ngFor='let c of customer'>
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">USERNAME</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" value = {{c.username}} readonly>
+                </div>
+               
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">NAME</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" value={{c.address.name}} readonly>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">CITY</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" value= {{c.address.city}} readonly>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">PHONE NUMBER</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" value= {{c.address.contactNo}} readonly>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">ZIPCODE</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" value={{c.address.zip}} readonly>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<h2>Personal details</h2>
+<h3>{{errorMsg}}</h3>
+
+  <table class="table ">
+    <thead class="text-light bg-dark">
+        <tr >
+            <th>USERNAME</th>
+            <th>Name</th>
+            <th>CITY</th>
+            <th>ZIP CODE</th>
+            <th>CONTACT NUMBER</th>      
+        </tr>
+    </thead>
+    <tbody class="p-3 mb-2 bg-white text-dark">
+        <tr *ngFor='let c of customer'>
+            
+            <td>{{c.username}}</td>
+            <td>{{c.address.name}}</td>
+            <td>{{c.address.city}}</td>
+            <td>{{c.address.zip}}</td>
+            <td>{{c.address.contactNo}}</td>
+  
+        </tr>
+    </tbody>
+   
+</table>
+-->
+

@@ -1,0 +1,65 @@
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/maintain']" style="font-weight: 700;">
+        
+      </a>
+    </div>
+  </nav>
+  
+  
+  <body>
+    <h1><u>UPDATE PRODUCT</u> </h1>
+    <div class="container" style="padding-left: 350px;" class="col-8">
+      <form #addForm="ngForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          <label style="color:black;  background-color: cadetblue;"class="btn btn-primary" >categoryId</label>
+          <input type="text" class="form-control" id="categoryId" [(ngModel)]="product.categoryId" name="categoryId"
+            required #categoryId="ngModel" [class.is-invalid]="categoryId.invalid && categoryId.touched">
+          <div *ngIf="categoryId.errors &&( categoryId.invalid && categoryId.touched)">
+            <small class="text-danger" *ngIf="categoryId.errors.required">categoryId Is Required</small>
+          </div>
+        </div>
+        <br><br>
+
+    
+  
+        <div class="form-group">
+          <label style="color:black; background-color: cadetblue;"class="btn btn-primary">Product Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required
+            #name="ngModel" [class.is-invalid]="name.invalid && name.touched">
+          <div *ngIf="name.errors &&(name.invalid && name.touched)">
+            <small class="text-danger" *ngIf="name.errors.required">Product Name Is Required</small>
+          </div>
+          <div class="col-10" *ngIf="errorMessage?.name">
+            <span class="text text-danger">{{errorMessage.name}}</span>
+          </div>
+        </div>
+        <br><br>
+  
+  
+  
+  
+  
+        <div class="form-group">
+          <label style="color:black;  background-color: cadetblue;"class="btn btn-primary" >Description</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description"
+            required #description="ngModel" [class.is-invalid]="description.invalid && description.touched">
+          <div *ngIf="description.errors &&( description.invalid && description.touched)">
+            <small class="text-danger" *ngIf="description.errors.required">Description Is Required</small>
+          </div>
+        </div>
+        <br><br>
+
+  
+  
+  
+           <div>
+          <br>
+          <button [disabled]="addForm.invalid" class="btn btn-primary" type="submit">Update</button>
+          <br><br>
+          </div>
+      </form>
+    </div>
+  </body>

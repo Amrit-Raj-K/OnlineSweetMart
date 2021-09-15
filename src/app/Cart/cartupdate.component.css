@@ -1,0 +1,12 @@
+.button{
+    position: absolute;
+    right: 40px;
+    border-radius: 4px;
+    border:  light solid #1b1a1a;
+    background-color:rgb(78, 203, 245);
+    font-family: "Arial", Impact, Charcoal, sans-serif;
+    font-weight: bold;
+    font-size:20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px black;
+}
