@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cg.osm.entity.SweetItem;
 import com.cg.osm.exception.SweetItemNotFoundException;
@@ -56,4 +57,11 @@ public class SweetItemServiceImpl implements SweetItemService { //Sweet Item Ser
 		return sweets.get();
 	}
 
+	  public SweetItem saveImage(MultipartFile file) {
+		  String docname = file.getOriginalFilename();
+	      SweetItem sweet=null;
+	      sweet.setImage(docname);
+		 
+		  return sweet;
+	  }
 }

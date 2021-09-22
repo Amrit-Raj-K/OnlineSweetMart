@@ -24,15 +24,26 @@ public class SweetItem {//SweetItem entity class
 	@SequenceGenerator(name = "sweeti_seq", sequenceName="sweeti_seq", allocationSize=1)
 	@Column(name = "sweetitemid")
 	private int sweetItemId;       //Primary key of sweet item with ID
-	@Size(min = 3, message = "SweetItem Name must have at least 2 characters")
+	@Size(min = 3, message = "SweetItem Name must have at least 3 characters")
 	@Pattern(regexp ="[a-zA-Z]*+[\\s]+[a-zA-Z]*")
 	@Column(name = "sweetitemname")
 	private String sweetItemName; //Name of the Sweet Item
 	@Column(name = "price")
 	private double price;         // Price of the Sweet Item
+	@Column(name = "image")
+	private String image; 
+	
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 	@ManyToOne(targetEntity = ProductCategory.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryid")
-	private ProductCategory categoryId; // Mapping of Category with Sweet Item
+	private ProductCategory category; // Mapping of Category with Sweet Item
 	@Transient                         // To prevent it from adding to Oracle Database
 	boolean available = true;          //To confirm the availability of the Sweet Item in front end
 	
@@ -49,12 +60,12 @@ public SweetItem() {                  // Empty constructor
 		this.available = available;
 	}
 
-	public ProductCategory getCategoryId() {
-		return categoryId;
+	public ProductCategory getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(ProductCategory categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(ProductCategory category) {
+		this.category = category;
 	}
 
 	public int getSweetItemId() {

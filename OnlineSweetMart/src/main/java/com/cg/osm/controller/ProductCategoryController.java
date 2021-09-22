@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.osm.entity.ProductCategory;
+import com.cg.osm.entity.SweetItem;
 import com.cg.osm.exception.ProductCategoryNotFoundException;
+import com.cg.osm.exception.SweetItemNotFoundException;
 import com.cg.osm.service.ProductCategoryService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/cat")
 public class ProductCategoryController {
 
@@ -61,5 +65,13 @@ public class ProductCategoryController {
 		}
 		return new ResponseEntity<List<ProductCategory>>(productcategory, HttpStatus.OK);
 	}
+	@GetMapping("/get/{id}")
+	public ResponseEntity<ProductCategory> showAllCategoryItemsById(@PathVariable("id") Integer id) throws ProductCategoryNotFoundException {
+		ProductCategory sw = service.findCategory(id);
+		if (sw==null) {
+			return new ResponseEntity("Sorry! Category  is not available!", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<ProductCategory>(sw, HttpStatus.OK);
 
+	}
 }

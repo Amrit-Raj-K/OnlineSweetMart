@@ -1,5 +1,6 @@
 package com.cg.osm.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -18,5 +19,5 @@ public interface SweetOrderService  {
 	public SweetOrder cancelSweetOrder(int sweetOrderId) throws SweetOrderNotFoundException;
 	public List<SweetOrder> showAllSweetOrders();
 	public SweetOrder findOrder(int sweetOrderId) throws SweetOrderNotFoundException;
-	
+	public BigDecimal max();
 }

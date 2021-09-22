@@ -1,5 +1,6 @@
 package com.cg.osm.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -52,6 +53,12 @@ public class SweetOrderServiceImpl implements SweetOrderService {
 		return sweetOrderRepository.findById(sweetOrderId)
 				.orElseThrow(() -> new SweetOrderNotFoundException("Can not find sweet order for id " + sweetOrderId));
 
+	}
+
+	@Override
+	public BigDecimal max() {
+		// TODO Auto-generated method stub
+		return sweetOrderRepository.max();
 	}
 
 }

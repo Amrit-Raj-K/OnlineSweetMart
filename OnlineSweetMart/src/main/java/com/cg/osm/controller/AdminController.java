@@ -5,8 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,31 +25,66 @@ import com.cg.osm.exception.CustomerNotFoundException;
 import com.cg.osm.exception.InvalidUserDataException;
 import com.cg.osm.exception.ProductCategoryNotFoundException;
 import com.cg.osm.exception.SweetItemNotFoundException;
+import com.cg.osm.jwt.AuthenticationRequest;
+import com.cg.osm.jwt.AuthenticationResponse;
+import com.cg.osm.jwt.JwtUtil;
+import com.cg.osm.jwt.MyUserDetailsService;
 import com.cg.osm.service.CustomerService;
 import com.cg.osm.service.ProductCategoryService;
 import com.cg.osm.service.SweetItemService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
-	@GetMapping("/type")
-	public ResponseEntity<String> checkLoggin(@RequestBody Customer c) throws InvalidUserDataException {
-		Customer cust = service.checkLoggin(c.getUsername(), c.getPassword());
+
+	@Autowired
+	private JwtUtil jwtTokenUtil;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+
+	@Autowired
+	private MyUserDetailsService userDetailsService;
+	
+	@PostMapping(path = "type")
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
+		
+		Customer cust=null;
+		try{ cust = service.checkLoggin(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 		if (cust == null) {
 			throw new InvalidUserDataException("Check the entered values for customername and password!");
 		}
-		String role;
+		try {
+			authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
+			);
+		}
+		catch (BadCredentialsException e) {
+			e.printStackTrace();
+			throw new Exception("Incorrect username or password", e);
+		}}catch(Exception e) {
+			throw new SweetItemNotFoundException(e.getMessage());
+		}
+		
+		
+
+		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+
+		String role = null;
 		if (cust.getType().equals("1")) {
 
 			role = "admin";
-			return new ResponseEntity<String>("Welcome " + role, HttpStatus.OK);
+			
 		} else if (cust.getType().equals("2")) {
 
 			role = "user";
-			return new ResponseEntity<String>("Welcome " + role, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<String>("Invalid user type!", HttpStatus.BAD_REQUEST);
-		}
+		} 
+		final String jwt = jwtTokenUtil.generateToken(userDetails);
+		String userid=String.valueOf(cust.getCustomerId());
+		String cartId =String.valueOf(cust.getCart().getCartId());
+		String username=cust.getUsername();
+		return ResponseEntity.ok(new AuthenticationResponse(jwt,role,userid,username,cartId));
 	}
 
 	@Autowired

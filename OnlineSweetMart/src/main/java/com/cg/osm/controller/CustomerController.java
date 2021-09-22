@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.osm.entity.Cart;
 import com.cg.osm.entity.Customer;
+import com.cg.osm.entity.SweetItem;
 import com.cg.osm.exception.CustomerNotFoundException;
+import com.cg.osm.exception.SweetItemNotFoundException;
 import com.cg.osm.service.CustomerService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/customer")
 public class CustomerController {
 	
@@ -33,7 +38,8 @@ public class CustomerController {
 	@PostMapping("/save")
 	public ResponseEntity<List<Customer>> addCustomer(@RequestBody Customer customers)
 			throws CustomerNotFoundException {
-         logger.info("Adding a customer : " + customers);
+		
+		        logger.info("Adding a customer : " + customers);
 		List<Customer> customer = service.addCustomer(customers);
 
 		return new ResponseEntity<List<Customer>>(customer, HttpStatus.OK);
@@ -76,7 +82,15 @@ public class CustomerController {
 		}
 		return new ResponseEntity<List<Customer>>(customer, HttpStatus.OK);
 	}
+	@GetMapping("/customer/{id}")
+	public ResponseEntity<Customer> showCustomerById(@PathVariable("id") Integer id) throws CustomerNotFoundException  {
+		Customer sw = service.findCustomer(id);   
+		if (sw==null) {
+			return new ResponseEntity("Sorry! Customer Item is not available!", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Customer>(sw, HttpStatus.OK);
 
+	}
 }
 
 

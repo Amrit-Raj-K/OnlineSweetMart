@@ -11,7 +11,7 @@ public class OnlineSweetMartApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineSweetMartApplication.class, args);
 		final Logger logger = LoggerFactory.getLogger(OnlineSweetMartApplication.class);
-		logger.info("I am running.....at port:8092");
+		logger.info("I am running.....at port:8099");
 		logger.warn("Please follow the instructions");
 		logger.error("this is a error message");
 	}
