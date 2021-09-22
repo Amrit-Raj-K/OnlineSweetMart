@@ -56,8 +56,8 @@ class CustomerClassApplicationTests {
 		customerlist = new ArrayList<>();
 		
 		//creating customer object to pass values
-		customer1 = new Customer(1, "ajay", "20-5-89/A,md road", "ajay@123", "1");
-		customer2 = new Customer(1, "priya", "20-4-89/A,rd road", "priya@123"," 1");
+//		customer1 = new Customer(1, "ajay", "20-5-89/A,md road", "ajay@123", "1");
+	//	customer2 = new Customer(1, "priya", "20-4-89/A,rd road", "priya@123"," 1");
 		
 		//adding the data to customerlist
 		customerlist.add(customer1);

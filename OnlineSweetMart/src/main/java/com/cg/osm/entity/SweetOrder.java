@@ -34,6 +34,8 @@ public class SweetOrder {
 	@JsonFormat(pattern = "dd-MMM-yyyy")
 	@Column(name = "createddate")
 	private LocalDate createdDate;
+	@Column(name = "itemid")
+	private Integer itemId;
 
 	public SweetOrder(int i, String string, int j) {
 		// TODO Auto-generated constructor stub
@@ -54,6 +56,15 @@ public class SweetOrder {
 		createdDate = LocalDate.now();
 	}
 
+	
+
+	public Integer getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
+	}
 	@ManyToOne(targetEntity = Customer.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "customerid")
 	private Customer customers;

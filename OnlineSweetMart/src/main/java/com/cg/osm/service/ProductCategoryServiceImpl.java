@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.osm.entity.ProductCategory;
+import com.cg.osm.entity.SweetItem;
 import com.cg.osm.exception.ProductCategoryNotFoundException;
 import com.cg.osm.repository.ProductCategoryRepository;
 
@@ -38,6 +39,13 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Override
 	public List<ProductCategory> showAllProductCategory() {
 		return pc.findAll();
+	}
+
+	@Override
+	public ProductCategory findCategory(Integer id) {
+		// TODO Auto-generated method stub
+		Optional<ProductCategory> product = pc.findById(id);
+		return product.get();
 	}
 
 }
